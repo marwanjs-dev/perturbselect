@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data
+data/raw/*
+data/processed/*
+
+# Keep folders
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Results that are too large
+*.h5ad
+*.h5
+*.loom
+*.npz
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+*.log
