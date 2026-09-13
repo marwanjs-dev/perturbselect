@@ -1,0 +1,3 @@
+dataset,n_cells,n_genes,n_perturbations,n_shared_perturbations,n_shared_genes
+K562,308646,8563,1971,1676,7226
+RPE1,240774,8749,2016,1676,7226
