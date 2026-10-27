@@ -1,0 +1,47 @@
+{
+  "project_root": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect",
+  "k562": {
+    "responses": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_measured_responses.npz",
+    "metadata": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_response_metadata.csv",
+    "fitness": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_gene_fitness.csv",
+    "gene_column": "gene",
+    "fitness_column": "k562_gamma",
+    "assay": "Independent K562 CRISPRi growth gamma; dependency = -gamma.",
+    "provenance_files": [
+      "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/notebooks/02_fitness_audit.ipynb",
+      "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/notebooks/03_k562_expression_signatures.ipynb"
+    ],
+    "metadata_gene_column": "gene",
+    "cell_count_column": "n_cells"
+  },
+  "rpe1": {
+    "responses": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/measured_responses.npz",
+    "metadata": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/response_metadata.csv",
+    "fitness": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/gene_fitness.csv",
+    "gene_column": "OFFICIAL_SYMBOL",
+    "fitness_column": "fitness",
+    "assay": "Hart/BioGRID ORCS RPE1 CRISPR-KO BAGEL Bayes Factor; dependency = raw score.",
+    "provenance_files": [
+      "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/dataset_summary.json",
+      "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/resolved_config.json"
+    ],
+    "metadata_gene_column": "gene",
+    "cell_count_column": "n_cells"
+  },
+  "analysis": {
+    "expected_features": 7226,
+    "pca_components": 100,
+    "cv_folds": 5,
+    "random_seed": 42,
+    "stability_seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ]
+  },
+  "output": {
+    "directory": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/selectivity"
+  }
+}

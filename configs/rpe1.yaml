@@ -1,0 +1,49 @@
+# Paths are relative to the repository, not the caller's working directory.
+project_root: ..
+
+dataset:
+  name: rpe1
+
+expression:
+  path: data/processed/replogle22rpe1.h5ad
+  perturbation_column: perturbation
+  control_label: control
+
+fitness:
+  path: data/raw/rpe1_hart2015_orcs_matrix.tsv
+  gene_column: OFFICIAL_SYMBOL
+  construct_column: null
+
+  # Hart/ORCS already provides one gene-level functional score.
+  # We pass it through the generic fitness interface as a single measurement.
+  replicate_columns: [28-SCORE.1]
+  replicate_aggregation: mean
+  construct_aggregation: median
+
+  excluded_gene_labels: []
+  require_complete_replicates: true
+  output_column: fitness
+
+  semantics: Higher BAGEL Bayes Factor means stronger evidence that the gene is required for RPE1 proliferation; no sign transformation.
+
+targets:
+  # Exact OFFICIAL_SYMBOL matches between RPE1 Perturb-seq and Hart ORCS.
+  # This file contains the 1765 validated RPE1 targets and preserves their order.
+  path: data/processed/rpe1_hart2015_gene_fitness.csv
+  column: gene
+
+features:
+  # Restrict RPE1 to the same K562/RPE1 shared expression-gene universe.
+  mode: intersection
+  path: data/processed/replogle22k562.h5ad
+
+analysis:
+  chunk_size: 5000
+  pca_components: 100
+  cv_folds: 5
+  random_seed: 42
+  stability_seeds: [11, 22, 33, 44, 55]
+  cell_count_thresholds: [30, 50, 75, 100, 150]
+
+output:
+  directory: results/rpe1

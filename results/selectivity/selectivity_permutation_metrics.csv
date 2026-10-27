@@ -1,0 +1,3 @@
+model,spearman_rho,pearson_r,r2,mae,rmse,endpoint
+Differential RNA (K562 - RPE1; target masked) (shuffled labels),-0.00357629112149066,-0.015770926544301598,-0.01582381379632869,0.2721649246824031,0.34141756509059507,functional_selectivity
+Differential RNA (shuffled selectivity),-0.003930082299927296,-0.015799275342982207,-0.015813531915042978,0.2721607183019987,0.3414158372202162,functional_selectivity

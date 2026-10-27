@@ -1,0 +1,5 @@
+association,rho,p_value,n
+magnitude_difference_vs_functional_selectivity,0.12740526721720447,1.2329404146197663e-06,1440
+cell_count_difference_vs_functional_selectivity,0.005893790203249812,0.8231764744377712,1440
+log_cell_count_difference_vs_functional_selectivity,-0.0035851692233076736,0.8918766986488574,1440
+z_selectivity_vs_functional_selectivity,0.989522716251446,0.0,1440

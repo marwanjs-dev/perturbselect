@@ -1,0 +1,27 @@
+# Consumes saved response artifacts only; no H5AD aggregation is performed.
+project_root: ..
+k562:
+  # results/k562 is currently empty. Use the validated notebook artifacts explicitly.
+  responses: results/phase0/k562_measured_responses.npz
+  metadata: results/phase0/k562_response_metadata.csv
+  fitness: results/phase0/k562_gene_fitness.csv
+  gene_column: gene
+  fitness_column: k562_gamma
+  assay: Independent K562 CRISPRi growth gamma; dependency = -gamma.
+  provenance_files: [notebooks/02_fitness_audit.ipynb, notebooks/03_k562_expression_signatures.ipynb]
+rpe1:
+  responses: results/rpe1/measured_responses.npz
+  metadata: results/rpe1/response_metadata.csv
+  fitness: results/rpe1/gene_fitness.csv
+  gene_column: OFFICIAL_SYMBOL
+  fitness_column: fitness
+  assay: Hart/BioGRID ORCS RPE1 CRISPR-KO BAGEL Bayes Factor; dependency = raw score.
+  provenance_files: [results/rpe1/dataset_summary.json, results/rpe1/resolved_config.json]
+analysis:
+  expected_features: 7226
+  pca_components: 100
+  cv_folds: 5
+  random_seed: 42
+  stability_seeds: [11, 22, 33, 44, 55]
+output:
+  directory: results/selectivity

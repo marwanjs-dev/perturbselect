@@ -30,3 +30,10 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Packaging/test artifacts and local test environment
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.env

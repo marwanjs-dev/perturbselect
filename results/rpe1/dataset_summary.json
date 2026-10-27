@@ -1,0 +1,36 @@
+{
+  "n_cells": 240774,
+  "n_genes": 8749,
+  "n_controls": 11485,
+  "n_perturbations": 2016,
+  "dataset": "rpe1",
+  "raw_fitness_rows": 17203,
+  "retained_construct_rows": 17203,
+  "raw_unique_genes": 17203,
+  "retained_construct_unique_genes": 17203,
+  "n_targets": 1765,
+  "n_features": 7226,
+  "n_masked_targets": 1551,
+  "mean_absolute_response": 0.05669902932458609,
+  "min_perturbation_cells": 30,
+  "median_perturbation_cells": 82.0,
+  "max_perturbation_cells": 3580,
+  "response_dtype": "float64",
+  "modeling_dtype": "float32",
+  "library_versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "anndata": "0.13.4"
+  },
+  "phenotype_semantics": "Higher BAGEL Bayes Factor means stronger evidence that the gene is required for RPE1 proliferation; no sign transformation.",
+  "feature_selection": {
+    "mode": "intersection",
+    "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/replogle22k562.h5ad"
+  },
+  "target_selection": {
+    "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/rpe1_hart2015_gene_fitness.csv",
+    "column": "gene"
+  }
+}

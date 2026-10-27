@@ -1,0 +1,62 @@
+# Local evidence registry only. No model integrations, downloads or inference.
+project_root: ..
+benchmark_directory: results/selectivity
+output_directory: results/model_feasibility
+hardware:
+  gpu_available: null
+  vram_gb: null
+  ram_gb: null
+policy:
+  # Full coverage is the default gate for the unchanged benchmark.
+  # Lower explicit thresholds yield CONDITIONAL rather than full-coverage PASS.
+  min_target_coverage: 1.0
+  min_feature_coverage: 1.0
+
+# Deliberately empty: no real candidate has been researched by this framework.
+models: []
+
+# Copy this mapping into models for each real candidate and cite the evidence.
+# null = unknown; false = verified no. Do not use the string 'unknown' for booleans.
+template:
+  name: null
+  paper: null
+  repository: null
+  license: null
+  prediction_access: null
+  perturbation_type: null
+  # Lists must describe the identifiers supported in BOTH contexts under the proposed setup.
+  # null = unknown list; [] = verified empty list. Exact case-sensitive matching.
+  supported_perturbations: null
+  supported_cell_contexts: null
+  k562_support: null
+  rpe1_support: null
+  input_requirements: null
+  output_type: null
+  output_gene_space: null
+  pretrained_model_available: null
+  pretrained_checkpoint: null
+  zero_shot_perturbation_support: null
+  unseen_cell_context_support: null
+  gpu_required: null
+  approximate_vram: null # GB for the proposed inference workload
+  approximate_ram: null # GB for inference / handling downloaded predictions
+  inference_available: null
+  training_required: null # true means full retraining required for the proposed evaluation route
+  prediction_download_available: null
+  expected_target_coverage: null # descriptive estimate only; cannot substitute for identifier overlap
+  expected_gene_coverage: null
+  normalization_information: null
+  expression_scale_information: null
+  major_compatibility_issues: null
+  feasibility_status: null # reviewer status; kept separate from computed status
+  notes: null
+  evidence_sources: null # paper sections, versioned docs/code, artifact references, review date
+  # Explicit reviewer conclusions; a URL alone never establishes these facts.
+  gene_perturbation_compatible: null
+  checkpoint_available: null
+  expression_output: null
+  output_compatible: null
+  gene_space_compatible: null
+  context_fairness: null
+  preprocessing_documented: null
+  reproducibility_documented: null

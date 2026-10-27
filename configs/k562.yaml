@@ -1,0 +1,37 @@
+# Paths are relative to the repository, not the caller's working directory.
+project_root: ..
+dataset:
+  name: k562
+expression:
+  path: data/processed/replogle22k562.h5ad
+  perturbation_column: perturbation
+  control_label: control
+fitness:
+  path: data/raw/k562_crispri_growth.csv
+  gene_column: gene
+  construct_column: sgID
+  replicate_columns: [dual_rep1_gamma, dual_rep2_gamma]
+  replicate_aggregation: mean
+  construct_aggregation: median
+  excluded_gene_labels: [non-targeting]
+  require_complete_replicates: true
+  output_column: fitness
+  semantics: More negative gamma means stronger growth impairment; no sign transformation.
+targets:
+  # Only identifiers/order are read; phenotypes are rebuilt from the raw screen.
+  # Preserves the notebook's 1641-row order and hence its exact shuffled folds.
+  path: results/phase0/k562_gene_fitness.csv
+  column: gene
+features:
+  # Shared 7226 genes, retaining K562 var_names order as in notebook 03.
+  mode: intersection
+  path: data/processed/replogle22rpe1.h5ad
+analysis:
+  chunk_size: 5000
+  pca_components: 100
+  cv_folds: 5
+  random_seed: 42
+  stability_seeds: [11, 22, 33, 44, 55]
+  cell_count_thresholds: [30, 50, 75, 100, 150]
+output:
+  directory: results/k562

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "perturbselect"
+version = "0.1.0"
+description = "Perturbation transcriptomic responses and independent functional fitness"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "pandas", "scipy", "scikit-learn", "anndata", "scanpy", "PyYAML"]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "matplotlib>=3.6"]
+presentation = ["matplotlib>=3.6"]
+excel = ["openpyxl", "xlrd"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["integration: local-data regression checks; opt in with PERTURBSELECT_RUN_INTEGRATION=1"]

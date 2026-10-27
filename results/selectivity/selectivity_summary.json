@@ -1,0 +1,197 @@
+{
+  "n_common_targets": 1440,
+  "n_features": 7226,
+  "n_positive_selectivity": 696,
+  "n_negative_selectivity": 742,
+  "n_zero_selectivity": 2,
+  "input_k562_response_targets": 1641,
+  "input_rpe1_response_targets": 1765,
+  "input_k562_fitness_genes": 1641,
+  "input_rpe1_fitness_genes": 1765,
+  "n_masked_targets": 1282,
+  "target_order": "lexicographically sorted four-way intersection",
+  "feature_order": "K562 NPZ order; RPE1 reordered by gene identity",
+  "primary_endpoint": "rank_pct(-k562_raw_fitness) - rank_pct(rpe1_raw_fitness)",
+  "rank_method": "average",
+  "rank_universe": "final common targets only",
+  "secondary_endpoint": "z(-k562_raw_fitness) - z(rpe1_raw_fitness)",
+  "zscore_ddof": 0,
+  "positive_selectivity": "stronger relative dependency in K562",
+  "assay_caveat": "CRISPRi gamma and CRISPR-KO BAGEL are distinct assays; rank contrast is not an absolute effect-size difference.",
+  "response_definition": "context perturbation mean minus context control mean",
+  "stability_input": "target-masked differential RNA; primary rank endpoint",
+  "permutation_inputs": "unmasked and target-masked differential RNA; identical shuffled primary rank endpoint",
+  "created_utc": "2026-10-04T09:22:34.401750+00:00",
+  "context_ablation": {
+    "models": [
+      "K562 RNA only",
+      "RPE1 RNA only",
+      "Differential RNA (K562 - RPE1)",
+      "Joint RNA (K562 + RPE1)"
+    ],
+    "endpoint": "functional_selectivity",
+    "same_targets_and_folds": true,
+    "preprocessing_and_hyperparameters": "identical configured PCA + Ridge pipeline"
+  },
+  "response_dtype": "float32",
+  "provenance": {
+    "k562": {
+      "assay": "Independent K562 CRISPRi growth gamma; dependency = -gamma.",
+      "files": [
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_measured_responses.npz",
+          "sha256": "e6d1749249fd2bfdc1dfa025df5e2c4f82c7acd3b6e6c7dd55b33562444d41a6",
+          "bytes": 44207422
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_response_metadata.csv",
+          "sha256": "247e4794b5a180c0eefddcbf3aaf22a42031f087e20ed94a9f337b95e2967584",
+          "bytes": 49685
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/phase0/k562_gene_fitness.csv",
+          "sha256": "780aa7f67bf23b85bffa80ac0014a3b56deaaedded635553c75ff6e74b77c438",
+          "bytes": 104909
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/notebooks/02_fitness_audit.ipynb",
+          "sha256": "e31adabd5edaeeb6529f7d18913ec97a097cba5daa02f80b868ec5eb8ca44ed2",
+          "bytes": 244837
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/notebooks/03_k562_expression_signatures.ipynb",
+          "sha256": "761b223041a561b79831f226cbfb29e0bfb2bea84c9ced183183b0cb4e60ef94",
+          "bytes": 100514
+        }
+      ]
+    },
+    "rpe1": {
+      "assay": "Hart/BioGRID ORCS RPE1 CRISPR-KO BAGEL Bayes Factor; dependency = raw score.",
+      "files": [
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/measured_responses.npz",
+          "sha256": "598faf26e22804d041e878d2889271e779377fa8e9aac5ba637505b191c5d883",
+          "bytes": 47619350
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/response_metadata.csv",
+          "sha256": "74096095aeae113432ec92cb5ea7c1d104a52160a6fdae20a91f43494cf0fa6f",
+          "bytes": 90186
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/gene_fitness.csv",
+          "sha256": "bff90dbd036a487b227117ca6933b1948e75d6bbf3ca4d6db4d4f428f67aa5ca",
+          "bytes": 23448
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/dataset_summary.json",
+          "sha256": "a13ab51feaf3ba2355c1cd4ade500496e6e952db941d297c4b38ac6f70683e49",
+          "bytes": 1178,
+          "source_metadata": {
+            "n_cells": 240774,
+            "n_genes": 8749,
+            "n_controls": 11485,
+            "n_perturbations": 2016,
+            "dataset": "rpe1",
+            "raw_fitness_rows": 17203,
+            "retained_construct_rows": 17203,
+            "raw_unique_genes": 17203,
+            "retained_construct_unique_genes": 17203,
+            "n_targets": 1765,
+            "n_features": 7226,
+            "n_masked_targets": 1551,
+            "mean_absolute_response": 0.05669902932458609,
+            "min_perturbation_cells": 30,
+            "median_perturbation_cells": 82.0,
+            "max_perturbation_cells": 3580,
+            "response_dtype": "float64",
+            "modeling_dtype": "float32",
+            "library_versions": {
+              "numpy": "2.5.3",
+              "pandas": "3.0.6",
+              "scipy": "1.18.1",
+              "scikit-learn": "1.9.1",
+              "anndata": "0.13.4"
+            },
+            "phenotype_semantics": "Higher BAGEL Bayes Factor means stronger evidence that the gene is required for RPE1 proliferation; no sign transformation.",
+            "feature_selection": {
+              "mode": "intersection",
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/replogle22k562.h5ad"
+            },
+            "target_selection": {
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/rpe1_hart2015_gene_fitness.csv",
+              "column": "gene"
+            }
+          }
+        },
+        {
+          "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1/resolved_config.json",
+          "sha256": "d57688e89cfefafc620a7971c4aa04bf5666d206975e13a4ed875221f3f9c613",
+          "bytes": 1628,
+          "source_metadata": {
+            "project_root": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect",
+            "dataset": {
+              "name": "rpe1"
+            },
+            "expression": {
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/replogle22rpe1.h5ad",
+              "perturbation_column": "perturbation",
+              "control_label": "control"
+            },
+            "fitness": {
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/raw/rpe1_hart2015_orcs_matrix.tsv",
+              "gene_column": "OFFICIAL_SYMBOL",
+              "construct_column": null,
+              "replicate_columns": [
+                "28-SCORE.1"
+              ],
+              "replicate_aggregation": "mean",
+              "construct_aggregation": "median",
+              "excluded_gene_labels": [],
+              "require_complete_replicates": true,
+              "output_column": "fitness",
+              "semantics": "Higher BAGEL Bayes Factor means stronger evidence that the gene is required for RPE1 proliferation; no sign transformation."
+            },
+            "targets": {
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/rpe1_hart2015_gene_fitness.csv",
+              "column": "gene"
+            },
+            "features": {
+              "mode": "intersection",
+              "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/data/processed/replogle22k562.h5ad"
+            },
+            "analysis": {
+              "chunk_size": 5000,
+              "pca_components": 100,
+              "cv_folds": 5,
+              "random_seed": 42,
+              "stability_seeds": [
+                11,
+                22,
+                33,
+                44,
+                55
+              ],
+              "cell_count_thresholds": [
+                30,
+                50,
+                75,
+                100,
+                150
+              ]
+            },
+            "output": {
+              "directory": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/rpe1"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "library_versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  }
+}

@@ -1,0 +1,37 @@
+# Template only: replace paths and column placeholders with real assay metadata.
+project_root: ..
+dataset:
+  name: example
+expression:
+  path: data/processed/EXPRESSION.h5ad
+  perturbation_column: PERTURBATION_COLUMN
+  control_label: CONTROL_LABEL
+fitness:
+  path: data/raw/FUNCTIONAL_SCREEN.csv
+  gene_column: GENE_COLUMN
+  # construct_column is optional; specify it if construct counts are wanted.
+  replicate_columns: [REPLICATE_COLUMN_1, REPLICATE_COLUMN_2]
+  replicate_aggregation: mean
+  construct_aggregation: median
+  require_complete_replicates: true
+  excluded_gene_labels: []
+  output_column: fitness
+  semantics: Describe the assay and meaning of higher/lower raw values here.
+# Without targets.path, use the sorted intersection of expression and fitness targets.
+# targets:
+#   path: data/processed/target_order.csv
+#   column: gene
+features:
+  # Explicitly choose all, intersection (another h5ad), or list (CSV/TSV column).
+  mode: all
+  # path: data/processed/feature_list.csv
+  # column: gene
+analysis:
+  chunk_size: 5000
+  pca_components: 100 # Must fit inside the smallest CV training fold.
+  cv_folds: 5
+  random_seed: 42
+  stability_seeds: [11, 22, 33, 44, 55]
+  cell_count_thresholds: [30, 50, 75, 100, 150]
+output:
+  directory: results/example

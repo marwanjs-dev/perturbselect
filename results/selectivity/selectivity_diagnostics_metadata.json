@@ -1,0 +1,18 @@
+{
+  "n_genes": 1440,
+  "n_bootstrap": 5000,
+  "random_seed": 42,
+  "endpoint": "functional_selectivity",
+  "interval": "paired percentile bootstrap, 2.5th/97.5th percentiles",
+  "scope": "fixed saved OOF fits; gene resampling only, no retraining; proportion_gt_zero is not a p-value",
+  "inputs": [
+    {
+      "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/selectivity/functional_selectivity.csv",
+      "sha256": "e80f2e4056521ff87284590b4d73359151ee9759cef2b6a9ae2c989e57c0ecab"
+    },
+    {
+      "path": "/mnt/e/fields_of_study/bioinformatics/Projects/perturbselect/results/selectivity/selectivity_predictions.csv",
+      "sha256": "e44d25b23e803bd1f5dbe58038dadc485add31899153c355183252362679cb83"
+    }
+  ]
+}

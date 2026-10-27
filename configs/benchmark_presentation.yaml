@@ -1,0 +1,14 @@
+# Display only: no endpoint, CV, bootstrap or hypothesis-test settings.
+metrics: [spearman_rho, pearson_r, r2, mae, rmse]
+method_order:
+  - Mean baseline
+  - Cell count only (both contexts)
+  - RNA magnitude difference
+  - K562 RNA only
+  - RPE1 RNA only
+  - Differential RNA (K562 - RPE1)
+  - Joint RNA (K562 + RPE1)
+baseline: K562 RNA only
+display_labels: {}
+output_formats: [svg, png, pdf]
+table_precision: 3
